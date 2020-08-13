@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Mahasiswa;
+use App\mahasiswa;
+use DataTables;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -14,10 +15,16 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        // return "Halaman Index Mahasiswa";
+       
         return view('mahasiswa.index');
-    }
+    }  
 
+    public function mhs_list()
+    {
+        return Datatables::of(Mahasiswa::all())
+        ->addIndexColumn()
+        ->make(true);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -42,10 +49,10 @@ class MahasiswaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  \App\mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function show(Mahasiswa $mahasiswa)
+    public function show(mahasiswa $mahasiswa)
     {
         //
     }
@@ -53,10 +60,10 @@ class MahasiswaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  \App\mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Mahasiswa $mahasiswa)
+    public function edit(mahasiswa $mahasiswa)
     {
         //
     }
@@ -65,10 +72,10 @@ class MahasiswaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  \App\mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Mahasiswa $mahasiswa)
+    public function update(Request $request, mahasiswa $mahasiswa)
     {
         //
     }
@@ -76,10 +83,10 @@ class MahasiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Mahasiswa  $mahasiswa
+     * @param  \App\mahasiswa  $mahasiswa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Mahasiswa $mahasiswa)
+    public function destroy(mahasiswa $mahasiswa)
     {
         //
     }
